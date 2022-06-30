@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Header from "../components/Header";
+
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -78,6 +80,7 @@ export default class Home extends Component {
     render() {
         return (
         <div>
+            <Header handleClick={this.logOut} search={{ color: 'var(--default-primary-color)', fontWeight: '600' }} />
             <div className="content">
                 <h2>Search</h2>
                 <form>
@@ -96,19 +99,6 @@ export default class Home extends Component {
                     <div></div>
                 }
 
-                <br/> <br/>
-                <a href='/sign-up' >
-                    <button >Sign Up</button>
-                </a>
-
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href='/log-in'>
-                    <button >Log In</button>
-                </a>
-
-                &nbsp;&nbsp;&nbsp;&nbsp;
-
-                <button onClick={this.logOut}>Log Out</button>
             </div>
 
         </div>
