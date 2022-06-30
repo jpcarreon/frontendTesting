@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
 import EditProfile from "./pages/EditProfile";
 
+import './App.css';
 
 
 function App() {
