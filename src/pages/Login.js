@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Header from "../components/Header";
+
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -33,25 +35,24 @@ export default class Home extends Component {
     render() {
         return (
         <div>
-            <h2>Log In</h2>
-            <form>
-                <input type="text" id="username" placeholder="Username" />&nbsp;
-                <input type="password" id="password" placeholder="Password" />&nbsp;
-                <button id="login" onClick={this.login}>Log In</button>
-            </form>
+            <Header handleClick={this.logout} login={{ color: 'var(--default-primary-color)', fontWeight: '600' }} />
+            <div className="content">
+                <h2>Log In</h2>
+                <form>
+                    <input type="text" id="username" placeholder="Username" />&nbsp;
+                    <input type="password" id="password" placeholder="Password" />&nbsp;
+                    <button id="login" onClick={this.login}>Log In</button>
+                </form>
 
-            <br/> <br/>
-            <a href='/sign-up'>
-                <button>Sign Up</button>
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href='/search'>
-                <button>Search</button>
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href='/edit-profile'>
-                <button>Edit Profile</button>
-            </a>
+                <br/> <br/>
+                <a href='/sign-up' className='nostyle'>
+                    <button className='center primary button break'>Sign Up</button>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href='/search' className='nostyle'>
+                    <button className='center primary button break'>Search</button>
+                </a>
+            </div>
         </div>
         )
     }
