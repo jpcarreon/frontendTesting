@@ -1,7 +1,6 @@
 
 
 import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
@@ -14,7 +13,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <div>
-          <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/log-in" component={Login} />
           <Route exact={true} path="/sign-up" component={SignUp} />
           <Route exact={true} path="/search" component={Search} />
