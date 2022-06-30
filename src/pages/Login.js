@@ -7,6 +7,7 @@ export default class Home extends Component {
         super(props);
 
         this.login = this.login.bind(this);
+        this.logOut = this.logOut.bind(this);
     }
 
     login(e) {
@@ -32,10 +33,32 @@ export default class Home extends Component {
             })
     }
 
+    logOut(e) {
+        e.preventDefault();
+        const token = prompt("Please enter your authorization token", "");
+
+        fetch (
+            'http://localhost:3001/user/logout',
+            {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            .then(response => response.json())
+            .then(body => {
+                console.log(body);
+                if (body.success)
+                    alert("Successfully Logged Out!");
+                else 
+                    alert(body.message)
+            })
+    }
+
     render() {
         return (
         <div>
-            <Header handleClick={this.logout} login={{ color: 'var(--default-primary-color)', fontWeight: '600' }} />
+            <Header handleClick={this.logOut} login={{ color: 'var(--default-primary-color)', fontWeight: '600' }} />
             <div className="content">
                 <h2>Log In</h2>
                 <form>
@@ -43,15 +66,6 @@ export default class Home extends Component {
                     <input type="password" id="password" placeholder="Password" />&nbsp;
                     <button id="login" onClick={this.login}>Log In</button>
                 </form>
-
-                <br/> <br/>
-                <a href='/sign-up' className='nostyle'>
-                    <button className='center primary button break'>Sign Up</button>
-                </a>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href='/search' className='nostyle'>
-                    <button className='center primary button break'>Search</button>
-                </a>
             </div>
         </div>
         )
