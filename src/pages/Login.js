@@ -41,12 +41,16 @@ export default class Home extends Component {
             </form>
 
             <br/> <br/>
-            <a href='/sign-up' className='nostyle'>
-                <button className='center primary button break'>Sign Up</button>
+            <a href='/sign-up'>
+                <button>Sign Up</button>
             </a>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href='/search' className='nostyle'>
-                <button className='center primary button break'>Search</button>
+            <a href='/search'>
+                <button>Search</button>
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href='/edit-profile'>
+                <button>Edit Profile</button>
             </a>
         </div>
         )
