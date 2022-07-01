@@ -91,6 +91,7 @@ export default class Home extends Component {
                 {
                     this.state.result ?
                     <div>
+                        <br/>
                         <h3>{ this.state.result.username + " (" + this.state.result.email + ")"} </h3>
                         <p>{ this.state.result.firstName + " " + this.state.result.lastName } </p>
                         <button onClick={this.delete}>Delete</button>

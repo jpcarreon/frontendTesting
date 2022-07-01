@@ -6,6 +6,10 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            result: null
+        }
+
         this.login = this.login.bind(this);
         this.logOut = this.logOut.bind(this);
     }
@@ -29,7 +33,11 @@ export default class Home extends Component {
             })
             .then(response => response.json())
             .then(body => {
-                console.log(body);
+                if (body.success) {
+                    alert("Successfully Logged In!");
+                    this.setState({ result: body.token });
+                } else 
+                    alert(body.message);
             })
     }
 
@@ -65,6 +73,16 @@ export default class Home extends Component {
                     <input type="text" id="username" placeholder="Username" />&nbsp;
                     <input type="password" id="password" placeholder="Password" />&nbsp;
                     <button id="login" onClick={this.login}>Log In</button>
+
+                    {
+                        this.state.result ?
+                        <div>
+                            <br/>
+                            <p>Token: {this.state.result}</p>
+                        </div>
+                        :
+                        <div></div>
+                    }
                 </form>
             </div>
         </div>
