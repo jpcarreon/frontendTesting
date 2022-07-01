@@ -28,6 +28,7 @@ export default class Home extends Component {
                     this.setState({ result: body.data })
                 } else {
                     this.setState({ result: null })
+                    alert(body.message)
                 }
             })
     }
