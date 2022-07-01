@@ -31,7 +31,12 @@ export default class Home extends Component {
             })
             .then(response => response.json())
             .then(body => {
-                console.log(body);
+                //console.log(body);
+                if(body.success) {
+                    alert("New account created!");
+                } else {
+                    alert(body.message);
+                }
             })
     }
 

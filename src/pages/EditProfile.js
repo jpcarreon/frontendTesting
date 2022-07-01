@@ -35,7 +35,12 @@ export default class Home extends Component {
             })
             .then(response => response.json())
             .then(body => {
-                console.log(body);
+                //console.log(body);
+                if(body.success) {
+                    alert("Edited profile successfully");
+                } else {
+                    alert(body.message);
+                }
             })
     }
 
